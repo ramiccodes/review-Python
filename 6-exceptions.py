@@ -33,3 +33,23 @@ print("Still running")
 
 # We can also optionally define a variable that will include details about
 # the exception, mostly the error message and sometimes additional arguments
+
+
+# Handling different exceptions
+try:
+    age = int(input("Age: "))
+    xfactor = 10 / age
+except (ValueError, ZeroDivisionError):
+    print("Please enter a valid age")
+else:
+    print("Didn't trigger the except block")
+print("Still running")
+
+# If the example above is passed a 0 for its input,
+# it will return a ZeroDivisionError, because we cannot divide a number
+# by 0. However, we don't have a matching except clause (ValueError)
+# To solve this:
+# We add a second except clause
+# But, you can also pass two except clauses in a single line
+# Whenever Python code is ran and comes across an except clause,
+# that one is executed but the other clauses are ignored
