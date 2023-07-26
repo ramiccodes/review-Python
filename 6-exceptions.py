@@ -63,3 +63,25 @@ print("Still running")
 # everything is cleaned up
 
 # The With Statement
+# with open("app.py") as file
+# The code format above allows the code to automatically call file.close() whether we have a finally
+# clause or not
+
+# Raising exceptions
+# you can also raise or throw exceptions in your own code
+
+# the raise keyword allows us to throw exceptions
+
+
+def calculate_xfactor(age):
+    if age <= 0:
+        raise ValueError("Age cannot be 0 or less.")
+    return 10 / age
+
+
+try:
+    calculate_xfactor(-1)
+except ValueError as error:
+    print(error)
+
+# Doing this is costly however, there is a better way
