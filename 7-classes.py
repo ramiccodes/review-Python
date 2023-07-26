@@ -36,6 +36,8 @@ print(isinstance(point, int))
 
 
 class PointArgs:
+    default_color = "Red"
+
     def __init__(self, x, y):
         self.x = x
         self.y = y
@@ -47,3 +49,24 @@ class PointArgs:
 point_coordinates = PointArgs(1, 2)
 print(point_coordinates.y)
 point_coordinates.draw()
+
+# Class vs Instance attributes
+# We can also define an attribute after we create the Point object
+point_coordinates.z = 10
+# The attributes we have defined so far are x, y, and z. They belong to Point instances
+
+another_point = PointArgs(3, 4)
+another_point.draw()
+
+# Each point has its own attribute, just like John and Mary can have different eye colors.
+# These are instance attributes
+
+# We can also define class attributes. They are attributes that we define at the class level
+# and they are the same across all instances of a class
+
+PointArgs.default_color = "Yellow"
+# Instance
+print(point_coordinates.default_color)
+print(another_point.default_color)
+# Class
+print(PointArgs.default_color)
