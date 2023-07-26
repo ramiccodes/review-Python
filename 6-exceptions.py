@@ -53,3 +53,11 @@ print("Still running")
 # But, you can also pass two except clauses in a single line
 # Whenever Python code is ran and comes across an except clause,
 # that one is executed but the other clauses are ignored
+
+# Cleaning Up
+# For example we open a file using the open() function, but put the
+# close() function that resolves it after the code that throws an exception,
+# It will never clean itself up because the code will jump to the except block
+# To solve this, we can add a finally clause, which will always be executed,
+# regardless if the try block throws an exception or not. This ensures that
+# everything is cleaned up
