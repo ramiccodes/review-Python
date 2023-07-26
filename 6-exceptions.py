@@ -1,4 +1,5 @@
 # Exceptions
+from timeit import timeit
 numbers = [1, 2]
 # print(numbers[3])
 
@@ -85,3 +86,43 @@ except ValueError as error:
     print(error)
 
 # Doing this is costly however, there is a better way
+
+
+# The cost of raising exceptions
+# from timeit module imported above
+code1 = """
+def calculate_xfactor(age):
+    if age <= 0:
+        raise ValueError("Age cannot be 0 or less.")
+    return 10 / age
+
+
+try:
+    calculate_xfactor(-1)
+except ValueError as error:
+    pass
+"""
+
+code2 = """
+def calculate_xfactor(age):
+    if age <= 0:
+        return None
+    return 10 / age
+
+
+xfactor = calculate_xfactor(-1)
+
+if xfactor == None:
+    pass
+"""
+
+# THe keyword argument number can be set to the number of times we want to execute this piece of code
+# It will return the execution time of this piece of code after 10,000 repititions
+print("First code", timeit(code1, number=10000))
+print("Second code", timeit(code2, number=10000))
+
+# Code 2 have faster execution time because it didn't raise any exceptions
+# When developing an app with small user base, it wouldn't matter if you raise exceptions
+# But for large scale app, this can severely affect performance
+
+# Raise exceptions when you have to
