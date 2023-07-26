@@ -8,3 +8,22 @@ print(type(x))  # class int
 
 # Class: Human
 # Object: John, Mary, Jack
+
+
+# Creating Classes
+# (Name written is Pascal naming convention - First letter capital)
+
+
+class Point:
+    def draw(self):
+        print("draw")
+
+# Every Point object we make now has this draw method
+
+
+point = Point()
+print(type(point))  # class __main__.Point
+
+# isinstance function finds out whether an object is an instance of a given class
+print(isinstance(point, Point))
+print(isinstance(point, int))
