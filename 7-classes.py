@@ -45,6 +45,10 @@ class PointArgs:
     def draw(self):
         print(f"Point ({self.x}, {self.y})")
 
+    @classmethod
+    def zero(cls):
+        cls(0, 0)
+
 
 point_coordinates = PointArgs(1, 2)
 print(point_coordinates.y)
@@ -70,3 +74,16 @@ print(point_coordinates.default_color)
 print(another_point.default_color)
 # Class
 print(PointArgs.default_color)
+
+# Class vs Instance Methods
+# A function defined within a class is called a method, which you can call using the dot notation
+another_point.draw()  # Instance method
+# .zero() is a factory method, because its like a factory, it creates a new
+# object
+zero = PointArgs.zero()
+# When making a factory method, pass it the argument cls (class) instead of the usual self.
+# To make it a class method, put @classmethod on top of the defined method, this is called a decorator
+# A decorator is a way to extend the behavior of a method or function.
+# cls(0, 0) automatically pass a reference to the Point class to the zero method
+
+print(zero)
