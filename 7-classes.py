@@ -141,3 +141,32 @@ print(point1 < point2)
 # __add__ magic method defined above
 
 print(point1 + point2)
+
+
+# Making custom containers
+class TagCloud:
+    def __init__(self):
+        self.tags = {}
+
+    def add(self, tag):
+        self.tags[tag.lower()] = self.tags.get(tag.lower(), 0) + 1
+
+    def __getitem__(self, tag):
+        return self.tags.get(tag.lower(), 0)
+
+    def __setitem__(self, tag, count):
+        self.tags[tag.lower()] = count
+
+    def len(self):
+        return len(self.tags)
+
+    # Makes the class an iterable
+    def __iter__(self):
+        return iter(self.tags)
+
+
+cloud = TagCloud()
+cloud.add("Python")
+cloud.add("python")
+cloud.add("python")
+print(cloud.tags)
