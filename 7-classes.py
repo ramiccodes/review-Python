@@ -45,6 +45,15 @@ class PointArgs:
     def __str__(self):
         return f"({self.x}, {self.y})"
 
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+
+    def __gt__(self, other):
+        return self.x > other.x and self.y > other.y
+
+    def __lt__(self, other):
+        return self.x < other.x and self.y < other.y
+
     def draw(self):
         print(f"Point ({self.x}, {self.y})")
 
@@ -101,3 +110,20 @@ print(zero)
 # __str__ (self) - called when we try to convert an object to a string
 print(point_coordinates)
 # Same result if you did print(str(point_coordinates))
+
+
+# Comparing Objects
+point1 = PointArgs(10, 20)
+point2 = PointArgs(1, 2)
+print(point1 == point2)
+# This returns false because compares the references and addresses of these
+# two objects in memory. This is why they're not equal
+# We need a magic method to compare two objects
+
+# __eq__ magic method defined above
+
+print(point1 > point2)
+
+# __gt__ magic method defined above
+
+print(point1 < point2)
