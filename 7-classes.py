@@ -185,3 +185,44 @@ cloud.add("python")
 # You can still access this, however
 print(cloud.__dict__)
 print(cloud._TagCloud__tags)
+
+
+# Properties
+class Product:
+    def __init__(self, price):
+        self.price = price
+
+    @property
+    def price(self):
+        return self.__price
+
+    @price.setter
+    def price(self, value):
+        if value < 0:
+            raise ValueError("Price cannot be negative")
+        self.__price = value
+
+
+product = Product(10)
+product.price = 20  # Has set_price as property
+print(product.price)  # Has get_price as property
+# This is not good, the product can't have negative price
+
+# The code above is not "Pythonic", not using Python's best practices
+# The implementation above is the kind of code a Java programmer learning Python would write
+# In Python, we have a better way to achieve the same result, this is when we use a Property.
+
+# A property is an object that sits in front of an attribute and allows us to get or set the value
+# of an attribute and allows us to get or set the value (kind of like in Ruby) of an attribute.
+
+# To define a property: (See above)
+# property() function accepts 4 optional arguments:
+# 1. function for getting
+# 2. function for setting
+# 3. function for deleting
+# 4. documentation
+
+# For the get and set methods to be hidden, we must use a decorator (see above)
+# By using a decorator, we can easily create a property.
+# Without making a setter decorator, we'll have a read only property, once it is set
+# we cannot change it
