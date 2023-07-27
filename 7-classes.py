@@ -54,6 +54,9 @@ class PointArgs:
     def __lt__(self, other):
         return self.x < other.x and self.y < other.y
 
+    def __add__(self, other):
+        return PointArgs(self.x + other.x, self.y + other.y)
+
     def draw(self):
         print(f"Point ({self.x}, {self.y})")
 
@@ -127,3 +130,14 @@ print(point1 > point2)
 # __gt__ magic method defined above
 
 print(point1 < point2)
+
+
+# Supporting Arithmetic Operations
+# We also have magic methods for arithmetic between two objects
+
+# If we want to add these two points together
+# Normal arithmetic operations
+
+# __add__ magic method defined above
+
+print(point1 + point2)
