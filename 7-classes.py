@@ -146,27 +146,42 @@ print(point1 + point2)
 # Making custom containers
 class TagCloud:
     def __init__(self):
-        self.tags = {}
+        self.__tags = {}
 
     def add(self, tag):
-        self.tags[tag.lower()] = self.tags.get(tag.lower(), 0) + 1
+        self.__tags[tag.lower()] = self.__tags.get(tag.lower(), 0) + 1
 
     def __getitem__(self, tag):
-        return self.tags.get(tag.lower(), 0)
+        return self.__tags.get(tag.lower(), 0)
 
     def __setitem__(self, tag, count):
-        self.tags[tag.lower()] = count
+        self.__tags[tag.lower()] = count
 
     def len(self):
-        return len(self.tags)
+        return len(self.__tags)
 
     # Makes the class an iterable
     def __iter__(self):
-        return iter(self.tags)
+        return iter(self.__tags)
 
 
 cloud = TagCloud()
 cloud.add("Python")
 cloud.add("python")
 cloud.add("python")
-print(cloud.tags)
+# print(cloud.__tags)  # Attribute error: doesn't have __tags
+
+
+# Private members
+# The problem with the class TagCloud above is that it gives us access to
+# the underlying dictionary that is used to keep track of the count of text
+# To fix this, we need to hide the attribute from the outside, so we cannot
+# access it
+
+# On the self.__tags property on the init function, rename __tags to be ____tags
+# to make it private
+
+# If you prefix with '__' it makes it private
+# You can still access this, however
+print(cloud.__dict__)
+print(cloud._TagCloud__tags)
