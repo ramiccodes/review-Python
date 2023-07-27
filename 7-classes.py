@@ -42,6 +42,9 @@ class PointArgs:
         self.x = x
         self.y = y
 
+    def __str__(self):
+        return f"({self.x}, {self.y})"
+
     def draw(self):
         print(f"Point ({self.x}, {self.y})")
 
@@ -87,3 +90,14 @@ zero = PointArgs.zero()
 # cls(0, 0) automatically pass a reference to the Point class to the zero method
 
 print(zero)
+
+# Magic Methods
+# Methods that have two underscores at the beginning and end
+# def __init__ magic method automatically by the python interpreter when
+# we create a new Point object
+
+# google search python 3 magic methods
+
+# __str__ (self) - called when we try to convert an object to a string
+print(point_coordinates)
+# Same result if you did print(str(point_coordinates))
