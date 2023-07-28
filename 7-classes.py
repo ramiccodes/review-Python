@@ -325,3 +325,62 @@ class Chicken(Bird):
 
 # The methods you add in your classes are there to solve a business problem. That is a focus of your software
 # If you want to use inheritance, limit it to one or two levels
+
+
+# Multiple Inheritance
+# In Python, a class can have multiple base classes
+
+class Rooster(Bird, Chicken):
+    pass
+
+# Similar to Multi level inheritance, this is a source of a lot of issues
+# If you don't use it properly, you're going to introduce a lot of bugs in
+# your program
+
+# On classes with multiple base class inheritance with the same methods,
+# the first base class gets priority when calling a method.
+# For example, the Bird class takes precedence when calling a method it shares
+# with the Chicken class
+
+# The process looks like this:
+# - The python interpreter checks if method exists in the Rooster class
+# - If not found, it looks for the method in the Bird class
+# - It finds the method in the Bird class
+# - It executes it
+
+# This is dangerous because a programmer can change the order of the classes
+# and the program would break
+
+# You'll end up with classes that inherit features that they shouldn't
+
+# Multiple inheritance is not always a bad thing, it's bad if not used properly.
+# If the base classes provided have nothing in common and you want to inherit
+# their features in a separate class, then it's perfectly fine to use
+# multiple inheritance
+
+# Multiple inheritance starts to become complicated when the base classes
+# have methods in common
+
+# Here's an example of a good inheritance:
+
+# Any object that knows how to fly
+
+
+class Flyer:
+    def fly(self):
+        pass
+
+
+# Any object that knows how to swim
+
+class Swimmer:
+    def swim(self):
+        pass
+
+# The two classes above are very small and abstract
+# They have nothing in common
+# We now can combine the features of these two classes:
+
+
+class FlyingFish(Flyer, Swimmer):
+    pass
