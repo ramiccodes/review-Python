@@ -1,5 +1,6 @@
 # Classes
 # - A blueprint for creating new objects
+from abc import ABC, abstractmethod
 x = 1
 print(type(x))  # class int
 
@@ -392,7 +393,7 @@ class InvalidOperationError(Exception):
     pass
 
 
-class Stream:
+class Stream(ABC):
     def __init__(self):
         self.opened = False
 
@@ -405,6 +406,10 @@ class Stream:
         if not self.opened:
             raise InvalidOperationError("Stream is already closed")
         self.opened = False
+
+    @abstractmethod
+    def read(self):
+        pass
 
 
 class FileStream(Stream):
@@ -419,3 +424,47 @@ class NetworkStream(Stream):
 
 # Stream is the base class which the subclasses FileStream and NetworkStream
 # inherit methods from
+
+
+# Abstract base classes
+# There are a few problems with the implemenation above:
+
+stream = Stream()
+stream.open()
+# Why is this an issue? Because this Stream class is an abstract concept
+# What does it mean to "open" a stream? What kind of stream?
+
+# We shouldn't be able to directly to create an instance of the Stream class
+# We should always subclass it and then create an instance of the subclass
+# We only made the Stream class as a base class to provide some code that we're
+# going to reuse across different kinds of streams
+# This is the first issue
+
+# The second issue is if you look at File and Network Stream implementation,
+# you can see that they both have the same read method
+# If we decide to make a new Stream, we must remember to implement the read
+# method
+# There is no way to enforce a common interface amongst different streams
+# It would be nice to have a common interface across these streams
+
+# How can we solve these problems?
+# This is when we can use an abstract base class
+# It's purpose is to provide some common code to these derivatives. So we want
+# to make this Stream class an abstract base class.
+
+# import abc module, which stands for abstract base class
+# from abc import ABC, abstractmethod
+# defined above
+# abstractmethod is a decorator
+
+# To make a class abstract, it should be derived from the ABC
+# Stream(ABC)
+# Second step is to define common interface for all streams (read method)
+
+# define a read method on the Stream class, and add @abstractmethod decorator
+# on the top
+
+# When a class has an abstract method, it's considered an abstract class,
+# so we cannot create an instance of them
+
+# Second problem solution
