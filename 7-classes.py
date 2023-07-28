@@ -308,3 +308,20 @@ print(m.weight)
 
 # We can also change the order, if you want to initialize the Mammal class before the ANimal class
 # by putting the super() method at the end of the init of Mammal
+
+
+# Multi-level Inheritance
+# Too much inheritance between classes can increase complexity and introduce various kinds of issues
+class Bird(Animal):
+    def fly(self):
+        print('fly')
+
+
+class Chicken(Bird):
+    pass
+
+# The Chicken class inherits all the features of the bird class, but a chicken cannot fly
+# This is an example of inheritance abuse. Another example is concept of employees
+
+# The methods you add in your classes are there to solve a business problem. That is a focus of your software
+# If you want to use inheritance, limit it to one or two levels
