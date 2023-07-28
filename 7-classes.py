@@ -241,6 +241,11 @@ class Animal:
 class Mammal(Animal):  # Inheritance in Action, we say that the Mammal class is an Animal so it inherits all the methods of the animal class
     # Animal: Parent, Base
     # Mammal: Child, Subclass
+
+    def __init__(self):
+        self.weight = 2
+        super().__init__()
+
     def walk(self):
         print("walk")
 
@@ -282,3 +287,24 @@ o = object()
 # issubclass() a built in function to see if a class is a subclass of another class
 print(issubclass(Mammal, Animal))
 print(issubclass(Mammal, object))
+
+
+# Method Overriding
+# What if we want to add a constructor to the Mammal class and initialize its weight
+# (see above)
+
+print(m.age)  # no attribute 'age'?
+print(m.weight)
+
+# This is because the Animal class constructor did not execute, but got replaced by Mammal class'
+# constructor, which only specifies the weight
+# This is called Method Overriding, we are overriding or replacing a method in the base class
+
+# To still initialize the age within the Mammal class, we can use the built in function, super()
+# This gives us access to the super or base class, which is the Animal in this case
+# super().__init__() (see above)
+# This jumps back to the base class and does its constructors first before returning to the the second
+# constructor
+
+# We can also change the order, if you want to initialize the Mammal class before the ANimal class
+# by putting the super() method at the end of the init of Mammal
