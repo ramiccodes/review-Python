@@ -226,3 +226,42 @@ print(product.price)  # Has get_price as property
 # By using a decorator, we can easily create a property.
 # Without making a setter decorator, we'll have a read only property, once it is set
 # we cannot change it
+
+
+# Inheritance
+# As you build various classes, they may have one or more features or functions in common
+class Animal:
+    def __init__(self):
+        self.age = 1
+
+    def eat(self):
+        print("eat")
+
+
+class Mammal(Animal):  # Inheritance in Action, we say that the Mammal class is an Animal so it inherits all the methods of the animal class
+    # Animal: Parent, Base
+    # Mammal: Child, Subclass
+    def walk(self):
+        print("walk")
+
+
+class Fish(Animal):
+    def swim(self):
+        print("swim")
+
+
+m = Mammal()
+m.eat()
+f = Fish()
+f.eat()
+# Defining a shared method between classes separately is bad for debugging if one of the methods have a bug on them, you got to fix single method
+# instance in each class
+
+# Programming Concept: DRY (Don't Repeat Yourself)
+
+# Inheritance is the mechanism that allows us to define the common behavior or functions in one class
+# and inherit them from other classes
+
+# We can also inherit the attributes of a base class (See above)
+print(m.age)
+print(f.age)
