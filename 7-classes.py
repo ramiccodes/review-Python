@@ -265,3 +265,20 @@ f.eat()
 # We can also inherit the attributes of a base class (See above)
 print(m.age)
 print(f.age)
+
+
+# The Object Class
+# Couple of useful built in funcitons
+
+# Tells us if object is an instance of a specified Class
+print(isinstance(m, Mammal))
+
+# All parent classes inherit from another class called object, even though not included (base class)
+print(isinstance(m, object))
+
+# object() is a built in function for creating a new instance an empty object
+o = object()
+
+# issubclass() a built in function to see if a class is a subclass of another class
+print(issubclass(Mammal, Animal))
+print(issubclass(Mammal, object))
