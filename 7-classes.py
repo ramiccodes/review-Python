@@ -331,8 +331,8 @@ class Chicken(Bird):
 # Multiple Inheritance
 # In Python, a class can have multiple base classes
 
-class Rooster(Bird, Chicken):
-    pass
+# class Rooster(Bird, Chicken):
+#     pass
 
 # Similar to Multi level inheritance, this is a source of a lot of issues
 # If you don't use it properly, you're going to introduce a lot of bugs in
@@ -429,8 +429,8 @@ class NetworkStream(Stream):
 # Abstract base classes
 # There are a few problems with the implemenation above:
 
-stream = Stream()
-stream.open()
+# stream = Stream()
+# stream.open()
 # Why is this an issue? Because this Stream class is an abstract concept
 # What does it mean to "open" a stream? What kind of stream?
 
@@ -467,4 +467,46 @@ stream.open()
 # When a class has an abstract method, it's considered an abstract class,
 # so we cannot create an instance of them
 
-# Second problem solution
+
+# Polymorphism
+class UIControl(ABC):
+    @abstractmethod
+    def draw(self):
+        pass
+
+
+class TextBox(UIControl):
+    def draw(self):
+        print("TextBox")
+
+
+class DropDownList(UIControl):
+    def draw(self):
+        print("DropDownList")
+
+
+# A function that takes in a UIControl object and call the draw method on it
+def draw(control):
+    control.draw()
+
+
+ddl = DropDownList()
+txtbx = TextBox()
+draw(txtbx)
+
+
+def draw_lots(controls):
+    for control in controls:
+        control.draw()
+
+
+draw_lots([ddl, txtbx])
+
+
+# The draw_lots function can take care of rendering the entire form
+# It doesn't need to know what kind of control it's working with
+# It simply iterates over control classes and calls the draw method for each
+# object
+# This is called Polymorphism ( Poly - Many, Morph = Form)
+
+# It's taking different forms during runtime
