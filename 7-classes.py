@@ -510,3 +510,27 @@ draw_lots([ddl, txtbx])
 # This is called Polymorphism ( Poly - Many, Morph = Form)
 
 # It's taking different forms during runtime
+
+
+# Duck Typing
+# To achieve polymorphic behavior, you start by defining base class and
+# in that class, we define the common behavior, or common method that we need in this derivative.
+# With this, we achieve polymorphic behavior on the draw_lots function
+# Depending on the type of control object that you're working with at run time
+# this type of control object's draw method takes a different form
+# This is how polymorphism works in all languages that support classes.
+# But because Python is a dynamically typed language, you don't necessarily
+# need this UI Control as the base class.
+# Even without it, we can still achieve polymorphic behavior
+
+# Here's the reason:
+# We passed it an argument of controls, this is only a label, we can pass
+# any kind of objects to this draw function. As long as that object passed in
+# is iterable because we're looping over it
+
+# As long as it has a draw method in each iterable, python is happy
+# This is what we call Duck Typing.
+# If it walks like a duck and quacks like a duck, then it is a duck.
+
+#  Python is a dynamically typed programming language and it does't check the type of objects
+# It only looks for the existence of certain methods in our objects.
