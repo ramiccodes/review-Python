@@ -1,5 +1,6 @@
 # Classes
 # - A blueprint for creating new objects
+from collections import namedtuple
 from abc import ABC, abstractmethod
 x = 1
 print(type(x))  # class int
@@ -557,3 +558,34 @@ class TrackableList(list):
 
 list = TrackableList()
 list.append("1")
+
+
+# Data Classes
+# Classes that don't have behavior or methods, only data
+class Coords:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+
+
+# Writing all these code for data classes is a bit tedious
+# If you're dealing with Classes with no methods only data, you cna use a named tuple instance
+# import
+# from collections import namedtuple
+# First arg pass the name for this new type
+# Second arg pass an array of attribute names
+# Pascal naming case because it represents a class
+Point = namedtuple("Point", ["x", "y"])
+p1 = Point(x=1, y=2)
+p2 = Point(x=1, y=2)
+print(p1 == p2)
+
+# The code above works instantly and you don't have to define the builtin method
+# If you're working with no classes only data, you might want to use a named tuple instead, you'll write less code
+
+print(p1.x)
+
+# They are IMMUTABLE (once created, they can't be changed)
