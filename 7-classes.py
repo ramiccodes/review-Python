@@ -534,3 +534,26 @@ draw_lots([ddl, txtbx])
 
 #  Python is a dynamically typed programming language and it does't check the type of objects
 # It only looks for the existence of certain methods in our objects.
+
+# Extending Built - In Types
+# We can also use inheritance with built in types
+class Text(str):
+    def duplicate(self):
+        return self + self
+
+
+text = Text("Python")
+print(text.lower())
+print(text.duplicate())
+
+# Extending Python List
+
+
+class TrackableList(list):
+    def append(self, object):
+        print("Append Called")
+        super().append(object)
+
+
+list = TrackableList()
+list.append("1")
