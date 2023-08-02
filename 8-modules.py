@@ -87,3 +87,11 @@ print(sys.path)
 # from ecommerce import sales
 # We can then use the dot notation to access all the methods within that file
 # sales.calc_tax
+
+# Sub-packages
+# For example, our ecommerce package has another package inside it named shopping
+# We also have to create a file named __init__.py within that folder to turn it into a
+# package
+# To import that package:
+# from <packagename>.<subpackage.name> import <filename>
+# from ecommerce.shopping import sales
