@@ -36,3 +36,13 @@ def calc_shipping():
 # sales.calc_tax()
 
 # You can import the entire module or import specific objects
+
+
+# Compiled Python Files
+# When a file with imported modules is ran, it creates a folder named __pycache__, in this folder, you have the compiled version
+# of the module imported into the program. eg. compiled version of sales.py
+# The reason Python stores the compiled files in this stored folder is to speed up module loading
+# So the next time we run the program, python will look in the compiled folder and if we do have compiled version
+# of the sales module, python will simply load up the compiled version
+# This results in faster loading of the module, NOT the overall performance of the program
+# It automatically recompiles the module if the module is updated
