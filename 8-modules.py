@@ -4,6 +4,9 @@
 # A module should contain highly related objects, they can be functions, objects, classes, methods, variables etc.
 
 # The code below could be in another file named sales.py
+import sys
+
+
 def calc_tax():
     pass
 
@@ -46,3 +49,11 @@ def calc_shipping():
 # of the sales module, python will simply load up the compiled version
 # This results in faster loading of the module, NOT the overall performance of the program
 # It automatically recompiles the module if the module is updated
+
+
+# Module Search Path
+# When you import a module, Python will look for it with its name with the .py extension
+# If it doesn't find it, it will look in a bunch of the predefined directories that come with Python installation
+print(sys.path)
+# The list of strings above are the directories that Python will search the modules on
+# To import a module from a sub directory, we need to look at Packages
