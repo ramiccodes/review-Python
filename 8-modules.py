@@ -124,3 +124,25 @@ print(sys.path)
 # This will print out a list of strings with all the attributes and methods to find in
 # an object
 # You can use the built in methods to debug the imports
+
+
+# Excecuting Modules as Scripts
+# If we import a module into our program, Python will load that module only once,
+# and then cache it in memory
+# So statements we write in a module will be excecuted once
+# a print function within the module imported will run when imported onto another file
+
+# Every module has the built in attribute, "__name__"
+# This will return the name of the module if called in a a file that imports it as module
+# However, if __name__ is called within a file, it will change the name to "__main__",
+# instead of the usual module name
+
+
+# if __name__ == '__main__':
+#   print("Sales started")
+#   calc_tax()
+
+# We can make this file usable as a script
+# if file is ran directly, the code above runs because the __name__ == '__main__'
+# But if we import this module onto another module, the code above will not be executed
+# because its __name__ is not equal to '__main__'
