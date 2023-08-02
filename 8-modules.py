@@ -57,3 +57,33 @@ def calc_shipping():
 print(sys.path)
 # The list of strings above are the directories that Python will search the modules on
 # To import a module from a sub directory, we need to look at Packages
+
+
+# Packages
+# As our programs grow, we're gonna have to organize it into sub directories
+# WIthin a new folder, we need to create a new python file names __init__.py
+# Adding this file within a folder, Python would treat the folder as a package.
+# A package is a container for one or more modules
+# For example:
+# You create a folder with the name ecommerce and within it the sales.py file
+# You need to create __init__.py for python to treat it as a package
+# You can then import the specific module within that package using dot notation:
+# import <packagename>.<filename>
+# import ecommerce.sales
+
+# To invoke a method within that packages:
+# <packagename>.<filename>.<method>()
+# ecommerce.sales.calc_tax()
+
+# This is tedious
+# Better approach is to use the from statement:
+# from <packagename>.<filename> import <method>
+# from ecommerce.sales import calc_tax
+# By doing this, you can call the calc_tax method normally:
+# calc_tax()
+
+# What if you want to use multiple objects in the sales module?
+# from <packagename> import <filename>
+# from ecommerce import sales
+# We can then use the dot notation to access all the methods within that file
+# sales.calc_tax
