@@ -95,3 +95,20 @@ print(sys.path)
 # To import that package:
 # from <packagename>.<subpackage.name> import <filename>
 # from ecommerce.shopping import sales
+
+
+# Intra-package References
+# There are times you want to import modules from sibling packages, not sub packages
+# Alongside ecommerce packages, we add a customer package
+# Within that customer package is a contact.py file
+# For example, we want to use the contact.py from customer package within our sales file
+# You open the sales.py file and within it:
+# from ecommerce.customer import contact
+#  ^ this is called an absolute import
+# You can then invoke the method within it:
+# contact.contact_customer()
+
+# from ..customer import contact
+#  ^ We can also use a relative import
+
+# As a best practice, prefer to use absolute imports and that's what pep8 also recommends
