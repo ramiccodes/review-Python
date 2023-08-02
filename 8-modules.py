@@ -112,3 +112,15 @@ print(sys.path)
 #  ^ We can also use a relative import
 
 # As a best practice, prefer to use absolute imports and that's what pep8 also recommends
+
+
+# The dir() function
+# Powerful built-in function named dir()
+# Using this function, we can get the list of attributes and methods defined in an object
+# from ecommerce.shopping import sales
+
+# You can use the dir() function for debugging
+# print(dir(sales))
+# This will print out a list of strings with all the attributes and methods to find in
+# an object
+# You can use the built in methods to debug the imports
