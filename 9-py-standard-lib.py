@@ -104,3 +104,28 @@ path_dir = Path("ecommerce")  # Path to a directory
 # py_files = [p for p in path.rglob("*.py")]
 # .rglob() is short for recursive glob
 # Returns all the py files in the ecommerce directory
+
+
+# Working with Files
+# Useful methods to work with files
+# path.exists()
+# path.rename('init.py')
+# We can delete the path by calling the unlink method
+# path.unlink()
+# path.stat()
+# Returns information about the file with that path
+# This returns a stat_result object with bunch of values with st_ctime values in seconds
+# To print human-readable time we have to import a module:
+# from time import ctime
+# print(ctime(path.stat().st_ctime))
+
+# path.read_bytes() - Returns the content of the file as bytes object when representing binary data
+# path.read_text() - Returns the content of the file as a string
+# path.write_text("....")
+# path.write_bytes()
+# The methods above take care of opening and closing a file
+
+# There is a better way:
+# sh util or shell utilities - provides a number of high level operations for copying and moving files and directories
+# import shutil
+# shutil.copy(source, target)
